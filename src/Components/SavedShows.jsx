@@ -35,6 +35,13 @@ const SavedShows = () => {
           console.log(error)
       }
   }
+  const truncateString = (str, num) => {
+    if (str?.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  };
 
   return (
     <>
@@ -60,10 +67,11 @@ const SavedShows = () => {
                 alt={item?.title}
               />
               <div className='absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 text-white'>
-                <p className='white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>
-                  {item?.title}
+                <p className='white-space-normal text-[8px] md:text-sm font-bold flex justify-center items-center h-full text-center'>
+                {truncateString(item?.title, 25)}
                 </p>
                 <p onClick={()=> deleteShow(item.id)} className='absolute text-gray-300 top-4 right-4'><AiOutlineClose /></p>
+                
               </div>
             </div>
           ))}
