@@ -15,7 +15,7 @@ const Search = () => {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchQuery}`;
       const response = await fetch(url);
       const data = await response.json();
-      setSearchResults(data.results.slice(0,5));
+      setSearchResults(data.results.slice(0,6));
     } catch (error) {
       console.error("Error:", error);
       alert("An error occurred while fetching search results.");
@@ -49,7 +49,7 @@ const Search = () => {
         {searchResults.length > 0 && (
           <ul>
             {searchResults.map((movie) => (
-              <li className="cursor-pointer txt-xs sm:text-lg border-2 flex flex-col py-2" key={movie.id}>{movie.title} ({movie.release_date})
+              <li className="cursor-pointer txt-xs sm:text-lg border-2 flex flex-col py-2 hover:bg-gray-700" key={movie.id}>{movie.title} ({movie.release_date})
               <p className="text-sm text-gray-400 ">⭐ {movie.vote_average}</p></li>
             ))}
           </ul>
