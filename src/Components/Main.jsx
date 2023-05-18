@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import requests from "../Request";
+import Search from "./Search";
 
 const Main = () => {
   const [movies, setMovies] = useState([]);
@@ -13,6 +14,7 @@ const Main = () => {
     });
   }, []);
   //   console.log(movie);
+
 
   const truncateString = (str, num) => {
     if (str?.length > num) {
@@ -31,6 +33,7 @@ const Main = () => {
           src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
           alt={movie?.title}
         />
+        <div className="absolute w-[300px] sm:w-[800px] top-[19%] left-[12%] sm:top-[19%] sm:left-[22%] z-20 object-cover bg-black opacity-90"><Search  /></div>
         <div className="absolute w-full top-[30%] p-4 md:p-8">
           <h1 className="text-3xl md:text-5xl font-bold">{movie?.title}</h1>
           <div className="my-4">
