@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Account from "./pages/Account";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import MoviePage from "./pages/MoviePage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="movie/:id" element={<MoviePage />} />
         </Routes>
       </AuthContextProvider>
     </>
